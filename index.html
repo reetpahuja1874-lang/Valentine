@@ -6,34 +6,34 @@
 <title>For You ❤️</title>
 
 <style>
-body {
+body{
   margin:0;
-  font-family:'Poppins',Arial;
+  font-family:'Poppins', Arial, sans-serif;
+  background:linear-gradient(135deg,#ff9a9e,#fad0c4);
   display:flex;
   justify-content:center;
   align-items:center;
   height:100vh;
-  background: linear-gradient(135deg, #ffdde1, #ee9ca7);
 }
 
-.page {
+.page{
   display:none;
   background:white;
   padding:25px;
   border-radius:20px;
   text-align:center;
-  max-width:400px;
+  max-width:380px;
   width:90%;
   box-shadow:0 10px 25px rgba(0,0,0,.25);
-  animation:fade 0.6s ease;
+  animation:fade .5s ease;
 }
 
-.page.active { display:block; }
+.page.active{display:block;}
 
-h1 { color:#ff4d6d; }
-p { font-size:16px; line-height:1.6; }
+h1{color:#ff4d6d;}
+p{font-size:16px; line-height:1.6;}
 
-button {
+button{
   padding:12px 25px;
   margin:10px;
   border:none;
@@ -42,43 +42,31 @@ button {
   color:white;
   font-size:16px;
   cursor:pointer;
+  transition:.3s;
 }
 
-button:hover { background:#ff1f4a; }
+button:hover{transform:scale(1.05);}
 
-img {
+img{
   width:100%;
-  max-width:300px;
+  max-width:280px;
   height:280px;
   object-fit:cover;
   border-radius:20px;
-  margin-top:15px;
+  margin-top:12px;
   box-shadow:0 8px 20px rgba(0,0,0,.25);
 }
 
-.porsche-container {
-  position:relative;
-}
-
-.porsche-cat {
-  position:absolute;
-  bottom:30px;
-  left:50%;
-  transform:translateX(-50%);
-  width:120px;
-  height:120px;
-}
-
-@keyframes fade {
-  from {opacity:0; transform:translateY(15px);}
-  to {opacity:1; transform:translateY(0);}
+@keyframes fade{
+  from{opacity:0; transform:translateY(15px);}
+  to{opacity:1; transform:translateY(0);}
 }
 </style>
 </head>
 
 <body>
 
-<!-- PAGE 1: Opening Message -->
+<!-- PAGE 1 -->
 <div class="page active" id="p1">
 <h1>Hii babee 💕</h1>
 <p>
@@ -89,18 +77,14 @@ I just wanna say I'm really grateful to have youuu, you genuinely do a lot for m
 <button onclick="go(2)">Next ➝</button>
 </div>
 
-<!-- PAGE 2: Valentine Question with Porsche + Cat -->
+<!-- PAGE 2 -->
 <div class="page" id="p2">
 <h1>Will you be my Valentine? 🌹</h1>
-<div class="porsche-container">
-  <img src="https://i.imgur.com/F0o6T7E.jpg" alt="Porsche" style="width:100%; border-radius:20px;"> <!-- Porsche background -->
-  <img src="https://i.imgur.com/7Q9pZ4B.png" class="porsche-cat" alt="Cat holding flowers"> <!-- Cat holding flowers -->
-</div>
 <button onclick="yes()">YES 😍</button>
 <button id="noBtn" onclick="nope()">NO 🙄</button>
 </div>
 
-<!-- PAGE 3: Bike Photo + I Love You -->
+<!-- PAGE 3 -->
 <div class="page" id="p3">
 <h1>I Love You ❤️</h1>
 <img src="yr.jpg">
@@ -108,14 +92,14 @@ I just wanna say I'm really grateful to have youuu, you genuinely do a lot for m
 <button onclick="go(4)">Next ➝</button>
 </div>
 
-<!-- PAGE 4: Selfie + Mwahhhh -->
+<!-- PAGE 4 -->
 <div class="page" id="p4">
 <h1>mwahhhh 😘</h1>
 <img src="ry.jpg">
 <button onclick="go(5)">Next ➝</button>
 </div>
 
-<!-- PAGE 5: Ending -->
+<!-- PAGE 5 -->
 <div class="page" id="p5">
 <h1>Thank you for being mine 💖</h1>
 <p>My favorite person. Always. 🥺✨</p>
@@ -127,16 +111,22 @@ function go(n){
   document.getElementById('p'+n).classList.add('active');
 }
 
-// No button shrinks but moves randomly
+let size=1;
 function nope(){
-  let b = document.getElementById("noBtn");
-  b.style.position="absolute";
+  let b=document.getElementById("noBtn");
+  size -= 0.12;
+  b.style.transform = `scale(${size})`;
+  b.style.position = "absolute";
   b.style.left = Math.random()*70 + "%";
   b.style.top = Math.random()*70 + "%";
+  if(size < 0.3){
+    b.style.display = "none";
+  }
 }
 
-// YES goes to next page
-function yes(){ go(3); }
+function yes(){
+  go(3);
+}
 </script>
 
 </body>
