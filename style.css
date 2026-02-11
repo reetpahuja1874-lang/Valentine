@@ -1,7 +1,9 @@
 body {
   margin: 0;
   font-family: 'Poppins', sans-serif;
-  background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+  background: linear-gradient(135deg, #ffb6c1, #ffc0cb); /* soft pink gradient */
+background: -webkit-linear-gradient(135deg, #ffb6c1, #ffc0cb); /* for Safari/Chrome */
+background: -moz-linear-gradient(135deg, #ffb6c1, #ffc0cb); /* for Firefox */
   display: flex;
   justify-content: center;
   align-items: center;
