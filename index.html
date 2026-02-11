@@ -3,49 +3,129 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>For You ❤️</title>
-  <link rel="stylesheet" href="style.css">
+  <title>For My Valentine 💖</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #ffdde1, #ee9ca7);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .page {
+      display: none;
+      background: white;
+      padding: 30px;
+      border-radius: 20px;
+      width: 85%;
+      max-width: 420px;
+      text-align: center;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+      animation: fade 0.6s ease;
+    }
+
+    .active {
+      display: block;
+    }
+
+    h1 {
+      color: #ff4d6d;
+    }
+
+    p {
+      font-size: 1.1em;
+      line-height: 1.5;
+    }
+
+    button {
+      padding: 10px 22px;
+      border: none;
+      border-radius: 25px;
+      background: #ff4d6d;
+      color: white;
+      font-size: 1em;
+      cursor: pointer;
+      margin: 8px;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background: #ff1f4a;
+      transform: scale(1.05);
+    }
+
+    img {
+      max-width: 200px;
+      margin: 15px 0;
+    }
+
+    @keyframes fade {
+      from {opacity: 0; transform: translateY(15px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+  </style>
 </head>
 <body>
 
   <!-- PAGE 1 -->
   <div class="page active" id="page1">
-    <h1>Hey Love 💕</h1>
+    <h1>Hii babee 💕</h1>
     <p>
-      I just want you to know how special you are to me.  
-      You make my days brighter, my smile wider, and me happier.  
-      I’m so grateful to have you, ik we're not celebrating but still i wanted to do this. Also, since you cannot keep  cards, i fgured this out! hehe 🥺❤️
+      Ik we're not celebrating valentines but i just wanted to do something and since you cannot keep cards, I figured this out! Hehe.
+      <br><br>
+      I just wanna say I'm really grateful to have youuu, you genuinely do a lot for me, make me smile every time, handle all my tantrums, my anger, everything so nicely and sachh me thank youu so much for all that, mwah! 😘❤️
     </p>
-    <button onclick="nextPage(2)">Next ➡</button>
+    <button onclick="nextPage()">Next ➝</button>
   </div>
 
   <!-- PAGE 2 -->
   <div class="page" id="page2">
-    <h1>Will you be my Valentine? 🌹</h1>
-    <img class="minion" src="https://media.tenor.com/0AVbKGY_MxMAAAAC/minion-flowers.gif">
-    <div class="buttons">
-      <button id="yesBtn">YES 😍</button>
-      <button id="noBtn">NO 🙄</button>
-    </div>
+    <h1>Will you be my Valentine? 💖</h1>
+    <img src="https://i.imgur.com/7Q9pZ4B.png" alt="Cute cat holding flowers">
+    <br>
+    <button id="yesBtn" onclick="yesClicked()">Yes 🥹</button>
+    <button id="noBtn" onclick="shrinkNo()">No 🙄</button>
   </div>
 
   <!-- PAGE 3 -->
   <div class="page" id="page3">
-    <h1>YAYYYY 🥂💛</h1>
-    <img class="minion" src="https://media.tenor.com/7Iu3dL3P0eUAAAAC/minions-cheers.gif">
-    <p>
-      I knew you’d say yes 😭✨  
-      Thankkk youuu so much for being mine 💕
-    </p>
-    <button onclick="nextPage(4)">Next ➡</button>
+    <h1>YAYYYY 🥂🎉</h1>
+    <img src="https://i.imgur.com/oZ6XQxN.png" alt="Happy cheering cat">
+    <p>I knew you'd accept it 😌💖 Thankkk youuu babeee!!!</p>
+    <button onclick="nextPage()">Next ➝</button>
   </div>
 
   <!-- PAGE 4 -->
   <div class="page" id="page4">
-    <h1>I Love You ❤️</h1>
-    <p>Always. Forever. Only you. 💖</p>
+    <h1>I Love You 💖</h1>
+    <p>Forever & Always 🫶✨</p>
   </div>
 
-  <script src="script.js"></script>
+<script>
+  let current = 1;
+
+  function nextPage() {
+    document.getElementById("page" + current).classList.remove("active");
+    current++;
+    document.getElementById("page" + current).classList.add("active");
+  }
+
+  function yesClicked() {
+    document.getElementById("page2").classList.remove("active");
+    document.getElementById("page3").classList.add("active");
+  }
+
+  function shrinkNo() {
+    let btn = document.getElementById("noBtn");
+    let size = btn.offsetWidth;
+    btn.style.width = size * 0.8 + "px";
+    btn.style.height = btn.offsetHeight * 0.8 + "px";
+    btn.style.fontSize = "0.8em";
+  }
+</script>
+
 </body>
 </html>
