@@ -8,7 +8,7 @@
 <style>
 body{
   margin:0;
-  font-family:'Poppins',Arial;
+  font-family:'Poppins', Arial, sans-serif;
   background:linear-gradient(135deg,#ff9a9e,#fad0c4);
   display:flex;
   justify-content:center;
@@ -42,7 +42,10 @@ button{
   color:white;
   font-size:16px;
   cursor:pointer;
+  transition:.3s;
 }
+
+button:hover{transform:scale(1.05);}
 
 img{
   width:100%;
@@ -50,7 +53,7 @@ img{
   height:280px;
   object-fit:cover;
   border-radius:20px;
-  margin-top:10px;
+  margin-top:12px;
   box-shadow:0 8px 20px rgba(0,0,0,.25);
 }
 
@@ -84,7 +87,7 @@ I just wanna say I'm really grateful to have youuu, you genuinely do a lot for m
 <!-- PAGE 3 -->
 <div class="page" id="p3">
 <h1>I Love You ❤️</h1>
-<img src="us1.jpg">
+<img src="yr.jpg">
 <p>Forever & always 🫶</p>
 <button onclick="go(4)">Next ➝</button>
 </div>
@@ -92,7 +95,7 @@ I just wanna say I'm really grateful to have youuu, you genuinely do a lot for m
 <!-- PAGE 4 -->
 <div class="page" id="p4">
 <h1>mwahhhh 😘</h1>
-<img src="us2.jpg">
+<img src="ry.jpg">
 <button onclick="go(5)">Next ➝</button>
 </div>
 
@@ -111,15 +114,19 @@ function go(n){
 let size=1;
 function nope(){
   let b=document.getElementById("noBtn");
-  size-=0.12;
-  b.style.transform=`scale(${size})`;
-  b.style.position="absolute";
-  b.style.left=Math.random()*70+"%";
-  b.style.top=Math.random()*70+"%";
-  if(size<0.3){b.style.display="none";}
+  size -= 0.12;
+  b.style.transform = `scale(${size})`;
+  b.style.position = "absolute";
+  b.style.left = Math.random()*70 + "%";
+  b.style.top = Math.random()*70 + "%";
+  if(size < 0.3){
+    b.style.display = "none";
+  }
 }
 
-function yes(){go(3);}
+function yes(){
+  go(3);
+}
 </script>
 
 </body>
